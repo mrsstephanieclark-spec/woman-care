@@ -1,0 +1,63 @@
+WomanCare Site Placeholder Images & Alt Text Directory
+------------------------------------------------------
+This file defines the recommended image filenames and corresponding alternative text (alt text) for each page to support the layout. The content areas are ready to receive real photography under these exact filenames in this directory.
+
+1. Home Page Hero
+   Filename: hero-home-placeholder.jpg
+   Alt: A modern, welcoming clinical lobby at WomanCare in Jeffersonville, Indiana.
+
+2. Prenatal Care & Delivery Page
+   Filename: prenatal-care-delivery.jpg
+   Alt: An obstetrician showing a expectant couple an ultrasound scan in a warm consultation room.
+
+3. Family Planning, Infertility & Preconception Care Page
+   Filename: family-planning-preconception.jpg
+   Alt: A compassionate care provider discussing family planning options with a patient.
+
+4. Wellness Exam Page
+   Filename: wellness-exam.jpg
+   Alt: A modern examination room setup for comfortable and thorough preventive wellness checkups.
+
+5. Hormone Replacement Therapy Page
+   Filename: hormone-replacement-therapy.jpg
+   Alt: Medical consultant talking to a patient about hormone balancing and optimization.
+
+6. Perimenopause & Menopause Care Page
+   Filename: menopause-care.jpg
+   Alt: A mature woman laughing in a bright kitchen, representing wellness and vitality in later life.
+
+7. NovaSure Endometrial Ablation Page
+   Filename: novasure.jpg
+   Alt: Medical chart diagram representing endometrial health, next to professional medical instruments.
+
+8. Providers Directory Page
+   Filename: providers.jpg
+   Alt: Group portrait of the professional obstetricians, certified nurse-midwives, and surgeons at WomanCare.
+
+9. Midwives & Natural Birth Page
+   Filename: midwives-natural-birth.jpg
+   Alt: A midwife checking the vitals of a pregnant woman in a cozy, home-like birthing room setting.
+
+10. Laparoscopic Surgeons Page
+    Filename: laparoscopic-surgeons.jpg
+    Alt: Two laparoscopic surgeons in clinical scrubs reviewing surgical planning models.
+
+11. New Patients Page
+    Filename: new-patients.jpg
+    Alt: Medical receptionist smiling at a patient signing in on a tablet.
+
+12. FAQs Page
+    Filename: faqs.jpg
+    Alt: Stylized silhouette of patients consulting with doctor, representing medical Q&A.
+
+13. Contact Page
+    Filename: contact.jpg
+    Alt: Exterior of the WomanCare building in Jeffersonville, Indiana.
+
+14. Billing & Insurance Page
+    Filename: billing-insurance.jpg
+    Alt: An office administrator explaining coverage options on a computer screen.
+
+15. Careers Page
+    Filename: careers.jpg
+    Alt: Two healthcare professionals discussing treatment plans, representing a collaborative career environment.

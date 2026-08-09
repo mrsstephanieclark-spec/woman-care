@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #6B3F4B;
+  --color-secondary: #8FA37E;
+  --color-blush: #F0D9D3;
+  --color-cream: #FAF5EF;
+  --color-charcoal: #2B2320;
+
+  --font-heading: var(--font-fraunces), serif;
+  --font-sans: var(--font-inter), sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #FAF5EF; /* cream */
+  --foreground: #2B2320; /* charcoal */
+  --card-bg: #ffffff;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Base interactive transitions */
+a, button {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Custom Design System Classes */
+.btn-primary {
+  @apply rounded-full bg-primary text-white px-6 py-2.5 text-sm font-semibold transition-all hover:bg-primary/90 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary inline-flex items-center justify-center text-center cursor-pointer;
+}
+
+.btn-secondary {
+  @apply rounded-full border border-primary text-primary bg-transparent px-6 py-2.5 text-sm font-semibold transition-all hover:bg-primary hover:text-white active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary inline-flex items-center justify-center text-center cursor-pointer;
+}
+
+.card-custom {
+  @apply bg-white rounded-2xl shadow-md p-6 md:p-8 border border-cream/50 transition-all hover:shadow-lg;
+}
+
+/* Plum Overlay Class for full-bleed images */
+.plum-overlay {
+  @apply relative overflow-hidden;
+}
+
+.plum-overlay::after {
+  content: '';
+  @apply absolute inset-0 bg-primary/50 mix-blend-multiply pointer-events-none z-10;
+}
+
+.plum-overlay-content {
+  @apply relative z-20;
+}
+
