@@ -15,7 +15,33 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [openMobileAccordion, setOpenMobileAccordion] = useState<string | null>(null);
+  const [closeTimeoutId, setCloseTimeoutId] = useState<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
+
+  // Clear timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutId) clearTimeout(closeTimeoutId);
+    };
+  }, [closeTimeoutId]);
+
+  const handleMouseEnter = (menu: string) => {
+    if (closeTimeoutId) {
+      clearTimeout(closeTimeoutId);
+      setCloseTimeoutId(null);
+    }
+    setOpenDropdown(menu);
+  };
+
+  const handleMouseLeave = () => {
+    if (closeTimeoutId) {
+      clearTimeout(closeTimeoutId);
+    }
+    const timeout = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 200); // 200ms delay before closing
+    setCloseTimeoutId(timeout);
+  };
 
   // Scroll detection for sticky shadow
   useEffect(() => {
@@ -63,12 +89,17 @@ export default function Header() {
   ];
 
   const toggleDropdown = (trigger: string) => {
+    if (closeTimeoutId) {
+      clearTimeout(closeTimeoutId);
+      setCloseTimeoutId(null);
+    }
     setOpenDropdown(openDropdown === trigger ? null : trigger);
   };
 
   const toggleMobileAccordion = (trigger: string) => {
     setOpenMobileAccordion(openMobileAccordion === trigger ? null : trigger);
   };
+
 
   return (
     <header
@@ -94,8 +125,8 @@ export default function Header() {
             {/* Services Mega-Menu Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setOpenDropdown("Services")}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => handleMouseEnter("Services")}
+              onMouseLeave={handleMouseLeave}
             >
               <button
                 className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer ${
@@ -121,24 +152,26 @@ export default function Header() {
 
               {/* Services Mega-Menu Card */}
               {openDropdown === "Services" && (
-                <div className="absolute left-1/2 -translate-x-1/2 mt-1 w-[600px] bg-white rounded-2xl shadow-xl border border-cream/50 p-6 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="grid grid-cols-2 gap-4">
-                    {servicesLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className={`p-3 rounded-xl transition-all hover:bg-cream/40 group/item ${
-                          pathname === link.href ? "bg-cream/50 text-primary font-medium" : "text-charcoal"
-                        }`}
-                      >
-                        <p className="text-sm font-semibold group-hover/item:text-primary transition-colors">
-                          {link.label}
-                        </p>
-                        <span className="text-xs text-charcoal/60 group-hover/item:text-charcoal/80 transition-colors">
-                          Learn more about our care options
-                        </span>
-                      </Link>
-                    ))}
+                <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[600px] z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="bg-white rounded-2xl shadow-xl border border-cream/50 p-6">
+                    <div className="grid grid-cols-2 gap-4">
+                      {servicesLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className={`p-3 rounded-xl transition-all hover:bg-cream/40 group/item ${
+                            pathname === link.href ? "bg-cream/50 text-primary font-medium" : "text-charcoal"
+                          }`}
+                        >
+                          <p className="text-sm font-semibold group-hover/item:text-primary transition-colors">
+                            {link.label}
+                          </p>
+                          <span className="text-xs text-charcoal/60 group-hover/item:text-charcoal/80 transition-colors">
+                            Learn more about our care options
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
@@ -147,8 +180,8 @@ export default function Header() {
             {/* Providers Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setOpenDropdown("Providers")}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => handleMouseEnter("Providers")}
+              onMouseLeave={handleMouseLeave}
             >
               <button
                 className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer ${
@@ -173,18 +206,20 @@ export default function Header() {
               </button>
 
               {openDropdown === "Providers" && (
-                <div className="absolute left-0 mt-1 w-64 bg-white rounded-xl shadow-lg border border-cream/50 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                  {providersLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`block px-4 py-2.5 rounded-lg text-sm transition-colors hover:bg-cream/40 ${
-                        pathname === link.href ? "text-primary font-semibold bg-cream/30" : "text-charcoal hover:text-primary"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                <div className="absolute left-0 top-full pt-2 w-64 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="bg-white rounded-xl shadow-lg border border-cream/50 p-2">
+                    {providersLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={`block px-4 py-2.5 rounded-lg text-sm transition-colors hover:bg-cream/40 ${
+                          pathname === link.href ? "text-primary font-semibold bg-cream/30" : "text-charcoal hover:text-primary"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -192,8 +227,8 @@ export default function Header() {
             {/* New Patients Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setOpenDropdown("New Patients")}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => handleMouseEnter("New Patients")}
+              onMouseLeave={handleMouseLeave}
             >
               <button
                 className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer ${
@@ -218,23 +253,25 @@ export default function Header() {
               </button>
 
               {openDropdown === "New Patients" && (
-                <div className="absolute left-0 mt-1 w-72 bg-white rounded-xl shadow-lg border border-cream/50 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                  {newPatientsLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      target={link.external ? "_blank" : undefined}
-                      rel={link.external ? "noopener noreferrer" : undefined}
-                      className="flex items-center justify-between px-4 py-2.5 rounded-lg text-sm transition-colors hover:bg-cream/40 text-charcoal hover:text-primary"
-                    >
-                      <span>{link.label}</span>
-                      {link.external && (
-                        <svg className="h-3.5 w-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      )}
-                    </Link>
-                  ))}
+                <div className="absolute left-0 top-full pt-2 w-72 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="bg-white rounded-xl shadow-lg border border-cream/50 p-2">
+                    {newPatientsLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        target={link.external ? "_blank" : undefined}
+                        rel={link.external ? "noopener noreferrer" : undefined}
+                        className="flex items-center justify-between px-4 py-2.5 rounded-lg text-sm transition-colors hover:bg-cream/40 text-charcoal hover:text-primary"
+                      >
+                        <span>{link.label}</span>
+                        {link.external && (
+                          <svg className="h-3.5 w-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -252,8 +289,8 @@ export default function Header() {
             {/* Contact Dropdown */}
             <div
               className="relative"
-              onMouseEnter={() => setOpenDropdown("Contact")}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => handleMouseEnter("Contact")}
+              onMouseLeave={handleMouseLeave}
             >
               <button
                 className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md transition-colors cursor-pointer ${
@@ -278,18 +315,20 @@ export default function Header() {
               </button>
 
               {openDropdown === "Contact" && (
-                <div className="absolute right-0 mt-1 w-64 bg-white rounded-xl shadow-lg border border-cream/50 p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                  {contactLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`block px-4 py-2.5 rounded-lg text-sm transition-colors hover:bg-cream/40 ${
-                        pathname === link.href ? "text-primary font-semibold bg-cream/30" : "text-charcoal hover:text-primary"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                <div className="absolute right-0 top-full pt-2 w-64 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="bg-white rounded-xl shadow-lg border border-cream/50 p-2">
+                    {contactLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={`block px-4 py-2.5 rounded-lg text-sm transition-colors hover:bg-cream/40 ${
+                          pathname === link.href ? "text-primary font-semibold bg-cream/30" : "text-charcoal hover:text-primary"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
