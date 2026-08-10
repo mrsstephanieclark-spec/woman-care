@@ -1,242 +1,278 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       
       {/* Hero Section with Plum Overlay */}
-      <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center bg-gray-900 plum-overlay">
-        {/* Placeholder background image using a styled Tailwind div or CSS placeholder since photography isn't ready */}
+      <section className="relative h-[85vh] min-h-[650px] flex items-center justify-center bg-charcoal plum-overlay">
+        {/* Full-bleed photo placeholder */}
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-80"
+          className="absolute inset-0 bg-cover bg-center opacity-85"
           style={{ 
-            backgroundImage: "url('/images/hero-home-placeholder.jpg')", 
+            backgroundImage: "url('/images/hero-home-expecting.jpg')", 
             backgroundColor: "#2B2320" 
           }}
-          aria-label="WomanCare welcoming environment placeholder image"
+          aria-label="Peaceful expectant mother holding her belly"
         />
         
         {/* Hero Content */}
-        <div className="max-w-4xl mx-auto px-4 text-center plum-overlay-content relative z-20">
-          <span className="text-blush text-sm font-semibold uppercase tracking-wider mb-3 block">
-            Welcome to WomanCare
-          </span>
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl text-white font-bold leading-tight mb-6">
-            Compassionate Care for Every Stage of Your Life
+        <div className="max-w-5xl mx-auto px-4 text-center plum-overlay-content relative z-20">
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl text-white font-bold leading-tight tracking-tight mb-6">
+            {"WomanCare — Health Care Designed for Today's Woman"}
           </h1>
-          <p className="text-lg text-cream/90 max-w-2xl mx-auto mb-8 font-light">
-            Our dedicated team of OB/GYN specialists, certified nurse-midwives, and surgeons are here to support your health journey with expertise and warm, personalized attention.
+          <p className="text-lg md:text-xl text-cream/90 max-w-3xl mx-auto mb-10 font-normal leading-relaxed">
+            {"Board-certified physicians and certified nurse-midwives providing comprehensive OB/GYN care for every stage of life."}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="btn-primary w-full sm:w-auto px-8 py-3 text-base">
-              Schedule Appointment
-            </Link>
-            <Link href="/services" className="btn-secondary w-full sm:w-auto px-8 py-3 text-base border-white text-white hover:bg-white hover:text-primary">
-              Explore Services
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+            <a 
+              href="tel:8122826114" 
+              className="btn-primary w-full sm:w-auto px-8 py-4 text-base shadow-lg bg-primary border border-primary hover:bg-primary/95 text-white"
+            >
+              Schedule an Appointment
+            </a>
+            <Link 
+              href="/providers" 
+              className="btn-secondary w-full sm:w-auto px-8 py-4 text-base shadow-lg border-white text-white hover:bg-white hover:text-primary"
+            >
+              Meet Our Providers
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Intro section */}
-      <section className="py-20 bg-cream">
+      {/* Stats Bar */}
+      <section className="bg-secondary text-white py-6 md:py-8 shadow-inner">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7">
-              <span className="text-secondary text-sm font-semibold uppercase tracking-wider mb-2 block">
-                Who We Are
-              </span>
-              <h2 className="font-heading text-3xl sm:text-4xl text-primary font-bold mb-6">
-                Dedicated Obstetric & Gynecological Care in Jeffersonville
-              </h2>
-              <p className="text-charcoal/80 leading-relaxed mb-6">
-                At WomanCare, we believe that every woman deserves high-quality, personalized healthcare. Whether you are expecting a child, seeking preventive wellness checks, navigating menopause, or exploring specialized surgical options, our team is committed to walking beside you.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
-                <div className="flex items-start gap-3">
-                  <div className="h-6 w-6 rounded-full bg-secondary/15 flex items-center justify-center text-secondary shrink-0 mt-1">
-                    ✓
-                  </div>
-                  <div>
-                    <h4 className="font-heading text-base font-semibold text-primary">Certified Nurse Midwives</h4>
-                    <p className="text-xs text-charcoal/70 mt-1">Supporting natural birth options and highly personalized maternity journeys.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="h-6 w-6 rounded-full bg-secondary/15 flex items-center justify-center text-secondary shrink-0 mt-1">
-                    ✓
-                  </div>
-                  <div>
-                    <h4 className="font-heading text-base font-semibold text-primary">Advanced Laparoscopic Surgeons</h4>
-                    <p className="text-xs text-charcoal/70 mt-1">Offering minimally invasive treatment pathways for complex concerns.</p>
-                  </div>
-                </div>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
+            <div className="py-2 md:py-0">
+              <span className="block font-heading text-3xl lg:text-4xl font-bold mb-1">3</span>
+              <span className="text-sm uppercase tracking-wider font-semibold text-cream/90">Board-Certified Physicians</span>
             </div>
+            <div className="py-2 md:py-0">
+              <span className="block font-heading text-3xl lg:text-4xl font-bold mb-1">6</span>
+              <span className="text-sm uppercase tracking-wider font-semibold text-cream/90">Certified Nurse-Midwives</span>
+            </div>
+            <div className="py-2 md:py-0">
+              <span className="block font-heading text-xl lg:text-2xl font-bold mb-1 leading-normal md:leading-10">Lowest C-Section Rate</span>
+              <span className="text-sm uppercase tracking-wider font-semibold text-cream/90">in the Region</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Three-Column Feature Section */}
+      <section className="py-24 bg-cream">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
-            {/* Visual Callout / Card Showcase */}
-            <div className="lg:col-span-5">
-              <div className="card-custom bg-white p-8 border-2 border-secondary/10 relative overflow-hidden">
-                <div className="absolute top-0 right-0 h-24 w-24 bg-blush/20 rounded-bl-full pointer-events-none" />
-                <h3 className="font-heading text-xl text-primary font-bold mb-4">Patient Information</h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed mb-6">
-                  Ready to join the WomanCare family? Learn more about insurance plans, find key forms, and pre-register online.
-                </p>
-                <div className="space-y-3">
-                  <Link href="/new-patients" className="block text-sm font-semibold text-secondary hover:text-primary transition-colors">
-                    New Patient Guide &rarr;
-                  </Link>
-                  <a href="https://forms.woman-care.org/patient-medical-history" target="_blank" rel="noopener noreferrer" className="block text-sm font-semibold text-secondary hover:text-primary transition-colors">
-                    Patient Medical History Form &rarr;
-                  </a>
-                  <Link href="/billing-insurance" className="block text-sm font-semibold text-secondary hover:text-primary transition-colors">
-                    Billing & Insurance Info &rarr;
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Services (Showcasing Cards) */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-secondary text-sm font-semibold uppercase tracking-wider mb-2 block">
-              Our Services
-            </span>
-            <h2 className="font-heading text-3xl sm:text-4xl text-primary font-bold">
-              Comprehensive Care at Every Milestone
-            </h2>
-            <p className="text-charcoal/70 mt-4">
-              Explore our core areas of care, from preventive wellness checks to advanced surgical procedures.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1 */}
-            <div className="card-custom flex flex-col justify-between h-full hover:border-primary/20">
+            <div className="card-custom flex flex-col justify-between h-full bg-white hover:border-primary/20 transition-all duration-300">
               <div>
-                <div className="h-12 w-12 bg-blush/35 rounded-xl flex items-center justify-center text-primary mb-6">
+                <div className="h-12 w-12 bg-blush/40 rounded-xl flex items-center justify-center text-primary mb-6 shrink-0">
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="font-heading text-xl text-primary font-semibold mb-3">Prenatal Care & Delivery</h3>
-                <p className="text-sm text-charcoal/75 leading-relaxed mb-6">
-                  Experience a supportive, comprehensive pregnancy journey with our experienced OB/GYNs and dedicated midwife team.
+                <h3 className="font-heading text-2xl text-primary font-bold mb-3">Expecting a Little One</h3>
+                <p className="text-sm text-charcoal/85 leading-relaxed mb-8">
+                  {"WomanCare has three Board-Certified Physicians and six of the only few Certified Nurse-Midwives in the Kentuckiana region who deliver babies in the comfort of Clark Memorial Hospital's Family Birth Place and at the Tree of Life Family Birth Center."}
                 </p>
               </div>
-              <Link href="/prenatal-care-delivery" className="text-sm font-bold text-primary hover:text-secondary transition-colors inline-flex items-center gap-1">
-                Learn More <span>&rarr;</span>
+              <Link 
+                href="/providers" 
+                className="text-sm font-bold text-secondary hover:text-primary transition-colors inline-flex items-center gap-1.5 group/link"
+              >
+                Learn about Providers <span className="transform transition-transform group-hover/link:translate-x-1">&rarr;</span>
               </Link>
             </div>
 
             {/* Card 2 */}
-            <div className="card-custom flex flex-col justify-between h-full hover:border-primary/20">
+            <div className="card-custom flex flex-col justify-between h-full bg-white hover:border-primary/20 transition-all duration-300">
               <div>
-                <div className="h-12 w-12 bg-secondary/15 rounded-xl flex items-center justify-center text-secondary mb-6">
+                <div className="h-12 w-12 bg-secondary/15 rounded-xl flex items-center justify-center text-secondary mb-6 shrink-0">
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <h3 className="font-heading text-xl text-primary font-semibold mb-3">Wellness Exams</h3>
-                <p className="text-sm text-charcoal/75 leading-relaxed mb-6">
-                  Stay proactive with essential preventive screenings, pap smears, breast health assessments, and counseling.
+                <h3 className="font-heading text-2xl text-primary font-bold mb-3">For Women of All Ages</h3>
+                <p className="text-sm text-charcoal/85 leading-relaxed mb-8">
+                  {"WomanCare offers a comprehensive array of OB/GYN services including preconception and family planning, infertility evaluations, complete care through pregnancy and delivery, menopause treatment and routine care throughout the year."}
                 </p>
               </div>
-              <Link href="/wellness-exam" className="text-sm font-bold text-primary hover:text-secondary transition-colors inline-flex items-center gap-1">
-                Learn More <span>&rarr;</span>
+              <Link 
+                href="/prenatal-care-delivery" 
+                className="text-sm font-bold text-secondary hover:text-primary transition-colors inline-flex items-center gap-1.5 group/link"
+              >
+                Explore Services <span className="transform transition-transform group-hover/link:translate-x-1">&rarr;</span>
               </Link>
             </div>
 
             {/* Card 3 */}
-            <div className="card-custom flex flex-col justify-between h-full hover:border-primary/20">
+            <div className="card-custom flex flex-col justify-between h-full bg-white hover:border-primary/20 transition-all duration-300">
               <div>
-                <div className="h-12 w-12 bg-blush/35 rounded-xl flex items-center justify-center text-primary mb-6">
+                <div className="h-12 w-12 bg-blush/40 rounded-xl flex items-center justify-center text-primary mb-6 shrink-0">
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="font-heading text-xl text-primary font-semibold mb-3">Menopause Care & HRT</h3>
-                <p className="text-sm text-charcoal/75 leading-relaxed mb-6">
-                  Navigate perimenopause and menopause transition comfortably with hormone optimization and personalized therapies.
+                <h3 className="font-heading text-2xl text-primary font-bold mb-3">Philosophy of Care</h3>
+                <p className="text-sm text-charcoal/85 leading-relaxed mb-8">
+                  {"We emphasize the human touch as much as technique and technology. We work hard to see you at your appointed time with every visit — and make time for any questions or concerns you may have. It's a delicate balance, but one we believe serves our patients well."}
                 </p>
               </div>
-              <Link href="/menopause-care" className="text-sm font-bold text-primary hover:text-secondary transition-colors inline-flex items-center gap-1">
-                Learn More <span>&rarr;</span>
-              </Link>
+              <span className="text-sm font-medium text-charcoal/40 italic">
+                Our Patient Promise
+              </span>
             </div>
-          </div>
 
-          <div className="text-center mt-12">
-            <Link href="/services" className="btn-secondary px-8 py-3">
-              View All Services
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* Two Addresses CTA Section */}
-      <section className="py-20 bg-cream/70 border-t border-cream">
+      {/* Long-Form Intro Section */}
+      <section className="py-24 bg-white border-t border-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-secondary text-sm font-semibold uppercase tracking-wider mb-2 block">
-              Our Locations
-            </span>
-            <h2 className="font-heading text-3xl sm:text-4xl text-primary font-bold">
-              Convenient Care in Jeffersonville
-            </h2>
-            <p className="text-charcoal/70 mt-4">
-              We operate two offices to serve you better, depending on your care path.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Text Column (Left) */}
+            <div className="lg:col-span-7">
+              <h2 className="font-heading text-3xl sm:text-4xl text-primary font-bold mb-8 leading-tight">
+                {"A Medical Practice Designed for the Unique Health Care Needs of Today's Woman"}
+              </h2>
+              
+              <div className="space-y-6 text-charcoal/85 text-base leading-relaxed">
+                <p>
+                  {"For a young woman, nervous about her first visit, we offer the reassurance you need to feel comfortable in our care, taking the time to answer any and every question. When wedding bells ring and you begin thinking about a family, we provide complete "}
+                  <Link href="/family-planning-preconception#preconception" className="font-semibold text-primary underline underline-offset-4 decoration-primary/45 hover:decoration-primary transition-colors">
+                    preconception care
+                  </Link>
+                  {", "}
+                  <Link href="/family-planning-preconception#family" className="font-semibold text-primary underline underline-offset-4 decoration-primary/45 hover:decoration-primary transition-colors">
+                    family planning
+                  </Link>
+                  {" "}
+                  {"and "}
+                  <Link href="/family-planning-preconception#infertility" className="font-semibold text-primary underline underline-offset-4 decoration-primary/45 hover:decoration-primary transition-colors">
+                    infertility evaluations
+                  </Link>
+                  {"."}
+                </p>
+
+                <p>
+                  {"For mothers-to-be, WomanCare has three Board-Certified "}
+                  <Link href="/providers" className="font-semibold text-primary underline underline-offset-4 decoration-primary/45 hover:decoration-primary transition-colors">
+                    Physicians
+                  </Link>
+                  {" and six Certified "}
+                  <Link href="/providers" className="font-semibold text-primary underline underline-offset-4 decoration-primary/45 hover:decoration-primary transition-colors">
+                    Nurse-Midwives
+                  </Link>
+                  {" who deliver babies in the comfort of Clark Memorial Hospital's Family Birth Place — including the most experienced "}
+                  <Link href="/midwives-natural-birth" className="font-semibold text-primary underline underline-offset-4 decoration-primary/45 hover:decoration-primary transition-colors">
+                    nurse-midwife
+                  </Link>
+                  {" in the entire metro region."}
+                </p>
+
+                <p>
+                  {"As your children grow and even leave the nest, we're still here for you, to help you through all the challenges and questions that the years can bring. And no matter your age, we work hard to see you promptly at the appointed time, in comfortable offices just minutes from downtown Louisville."}
+                </p>
+
+                <p className="font-medium text-charcoal">
+                  {"Whatever your season of life, enjoy care that will exceed your expectations. Call "}
+                  <a href="tel:8122826114" className="font-semibold text-primary underline underline-offset-4 decoration-primary/45 hover:decoration-primary transition-colors">
+                    (812) 282-6114
+                  </a>
+                  {" and schedule an appointment. WomanCare…our name says it all."}
+                </p>
+              </div>
+            </div>
+
+            {/* Photo Column (Right) */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-lg aspect-4/3 lg:aspect-square bg-cream">
+                <Image
+                  src="/images/intro-office.jpg"
+                  alt="Modern and comfortable WomanCare medical office lobby"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              {/* Decorative accent element */}
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blush/20 rounded-full -z-10 blur-xl" />
+            </div>
+
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Main Office Card */}
-            <div className="bg-white rounded-2xl shadow-sm p-8 border border-cream/55 flex flex-col justify-between">
-              <div>
-                <h3 className="font-heading text-xl text-primary font-bold mb-2">Main Office</h3>
-                <p className="text-sm text-charcoal/80 leading-relaxed mb-4">
-                  301 Gordon Gutmann Blvd, Suite 201<br />
-                  Jeffersonville, IN 47130
-                </p>
-                <p className="text-xs text-charcoal/60 leading-relaxed mb-6">
-                  Centrally located, housing our primary obstetric, gynecological, and surgical consultations.
-                </p>
+      {/* Heartbeat Bears Feature (Blush Background) */}
+      <section className="py-24 bg-cream/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-blush/25 border border-blush/55 rounded-3xl p-8 md:p-12 lg:p-16 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              
+              {/* Photo Left */}
+              <div className="lg:col-span-4 relative order-last lg:order-first">
+                <div className="relative rounded-2xl overflow-hidden shadow-md aspect-square max-w-[300px] mx-auto bg-white p-4">
+                  <div className="w-full h-full relative rounded-xl overflow-hidden bg-cream">
+                    <Image
+                      src="/images/heartbeat-bear.jpg"
+                      alt="Cuddly stuffed animal from the Heartbeat Bears collection with recorder"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
               </div>
-              <a 
-                href="https://maps.google.com/?q=301+Gordon+Gutmann+Blvd+Jeffersonville+IN+47130" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-sm font-semibold text-secondary hover:text-primary transition-colors inline-flex items-center gap-1"
-              >
-                Get Directions &rarr;
-              </a>
-            </div>
 
-            {/* Midwives Office Card */}
-            <div className="bg-white rounded-2xl shadow-sm p-8 border border-cream/55 flex flex-col justify-between">
-              <div>
-                <h3 className="font-heading text-xl text-primary font-bold mb-2">Midwives Office</h3>
-                <p className="text-sm text-charcoal/80 leading-relaxed mb-4">
-                  1407 Spring Street #2<br />
-                  Jeffersonville, IN 47130
+              {/* Text Right */}
+              <div className="lg:col-span-8">
+                <span className="text-secondary text-sm font-semibold uppercase tracking-wider mb-2 block">
+                  Special Keepsake
+                </span>
+                <h2 className="font-heading text-3xl sm:text-4xl text-primary font-bold mb-6">
+                  {"Capture Your Little One's Heartbeat"}
+                </h2>
+                <p className="text-charcoal/85 leading-relaxed mb-8 text-base">
+                  {"The Heartbeat Bears collection gives you the opportunity to capture your little one's heartbeat and sounds in an instant! Each stuffed animal comes with an easy-to-use recorder, so you can record your baby's heartbeat. And if you're looking for something outside the range of teddy bears, expectant moms can also order from a catalog with other cuddly critters to find the perfect match for you and your baby!"}
                 </p>
-                <p className="text-xs text-charcoal/60 leading-relaxed mb-6">
-                  Offering a welcoming, home-like clinical environment focused on midwife-led prenatal and preconception counseling.
-                </p>
+                <div>
+                  <a
+                    href="http://main.acsevents.org/goto/womancare"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary px-8 py-3.5 shadow-md hover:bg-primary/95 text-white inline-flex"
+                  >
+                    Donate Today
+                  </a>
+                </div>
               </div>
-              <a 
-                href="https://maps.google.com/?q=1407+Spring+Street+Jeffersonville+IN+47130" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-sm font-semibold text-secondary hover:text-primary transition-colors inline-flex items-center gap-1"
-              >
-                Get Directions &rarr;
-              </a>
+
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA Banner */}
+      <section className="bg-primary text-white py-20 text-center relative overflow-hidden">
+        {/* Visual background patterns */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-2xl pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-8">
+            {"Whatever Your Season of Life, We're Here"}
+          </h2>
+          <div>
+            <a
+              href="tel:8122826114"
+              className="btn-primary bg-white text-primary border border-white hover:bg-cream hover:text-primary px-10 py-4 text-lg font-bold shadow-xl transition-all"
+            >
+              Call (812) 282-6114
+            </a>
           </div>
         </div>
       </section>
