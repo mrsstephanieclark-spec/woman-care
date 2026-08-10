@@ -12,7 +12,7 @@ export default function LaparoscopicSurgeonsPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-85"
           style={{ 
-            backgroundImage: "url('/images/laparoscopic-surgeons.jpg')", 
+            backgroundImage: "url('/images/laparoscopic-surgeons.webp')", 
             backgroundColor: "#2B2320" 
           }}
           aria-label="Laparoscopic surgeons in sterile scrubs preparing for procedure"

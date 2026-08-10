@@ -110,7 +110,7 @@ export default function FamilyPlanningPreconceptionPage() {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-md aspect-4/3 bg-white">
               <Image
-                src="/images/preconception.jpg"
+                src="/images/preconception.png"
                 alt="Realistic active woman preparing a healthy meal with fresh vegetables in kitchen"
                 fill
                 className="object-cover"

@@ -12,7 +12,7 @@ export default function HormoneReplacementTherapyPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-80"
           style={{ 
-            backgroundImage: "url('/images/hrt.jpg')", 
+            backgroundImage: "url('/images/hrt.webp')", 
             backgroundColor: "#2B2320" 
           }}
           aria-label="Vibrant active woman in midlife walking outdoors during golden hour"

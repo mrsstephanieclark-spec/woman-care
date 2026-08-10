@@ -12,7 +12,7 @@ export default function WellnessExamPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-80"
           style={{ 
-            backgroundImage: "url('/images/wellness-exam.jpg')", 
+            backgroundImage: "url('/images/wellness-exam.avif')", 
             backgroundColor: "#2B2320" 
           }}
           aria-label="Clean examination room"

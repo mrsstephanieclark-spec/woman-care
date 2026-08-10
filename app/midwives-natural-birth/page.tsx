@@ -100,8 +100,8 @@ export default function MidwivesNaturalBirthPage() {
           <div className="lg:col-span-4 space-y-6">
             <div className="relative rounded-2xl overflow-hidden shadow-md aspect-square bg-white">
               <Image
-                src="/images/midwife-natural-details-1.jpg"
-                alt="Midwife supporting patient inside birthing center"
+                src="/images/midwives-natural-birth.jpg"
+                alt="Midwife supporting patient during natural childbirth consultation"
                 fill
                 className="object-cover"
               />
