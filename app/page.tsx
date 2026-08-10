@@ -1,21 +1,59 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    
+    const timer = setTimeout(() => {
+      setMounted(true);
+      setPrefersReducedMotion(mediaQuery.matches);
+    }, 0);
+
+    const listener = (event: MediaQueryListEvent) => {
+      setPrefersReducedMotion(event.matches);
+    };
+    mediaQuery.addEventListener("change", listener);
+    return () => {
+      clearTimeout(timer);
+      mediaQuery.removeEventListener("change", listener);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       
       {/* Hero Section with Plum Overlay */}
       <section className="relative h-[85vh] min-h-[650px] flex items-center justify-center bg-charcoal plum-overlay">
-        {/* Full-bleed photo placeholder */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-85"
-          style={{ 
-            backgroundImage: "url('/images/hero-home-expecting.jpg')", 
-            backgroundColor: "#2B2320" 
-          }}
-          aria-label="Peaceful expectant mother holding her belly"
-        />
+        {/* Loop, mute, autoplay video background or photo fallback */}
+        {mounted && !prefersReducedMotion ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/prenatal-hero.jpg"
+            className="absolute inset-0 w-full h-full object-cover opacity-85"
+            aria-label="Looping background video of a peaceful expectant mother"
+          >
+            <source src="/videos/home-hero.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-85"
+            style={{ 
+              backgroundImage: "url('/images/prenatal-hero.jpg')", 
+              backgroundColor: "#2B2320" 
+            }}
+            aria-label="Peaceful expectant mother holding her belly"
+          />
+        )}
         
         {/* Hero Content */}
         <div className="max-w-5xl mx-auto px-4 text-center plum-overlay-content relative z-20">
@@ -194,8 +232,8 @@ export default function Home() {
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-2xl overflow-hidden shadow-lg aspect-4/3 lg:aspect-square bg-cream">
                 <Image
-                  src="/images/intro-office.jpg"
-                  alt="Modern and comfortable WomanCare medical office lobby"
+                  src="/images/home-intro-generations.jpg"
+                  alt="Multi-generational family representation representing care across stages of life"
                   fill
                   className="object-cover"
                 />

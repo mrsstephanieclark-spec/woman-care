@@ -12,10 +12,10 @@ export default function HormoneReplacementTherapyPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-80"
           style={{ 
-            backgroundImage: "url('/images/hormone-replacement-therapy.jpg')", 
+            backgroundImage: "url('/images/hrt.jpg')", 
             backgroundColor: "#2B2320" 
           }}
-          aria-label="Provider explaining hormone therapy"
+          aria-label="Vibrant active woman in midlife walking outdoors during golden hour"
         />
         <div className="plum-overlay-content relative z-20 text-center max-w-4xl mx-auto px-4">
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl text-white font-bold mb-3">

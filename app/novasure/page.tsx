@@ -12,10 +12,10 @@ export default function NovasurePage() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-80"
           style={{ 
-            backgroundImage: "url('/images/novasure.jpg')", 
+            backgroundImage: "url('/images/novasure-hero.jpg')", 
             backgroundColor: "#2B2320" 
           }}
-          aria-label="NovaSure clinical equipment representation"
+          aria-label="Calm and relaxed middle-aged woman in warm home environment"
         />
         <div className="plum-overlay-content relative z-20 text-center max-w-4xl mx-auto px-4">
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl text-white font-bold mb-3">

@@ -12,7 +12,7 @@ export default function MenopauseCarePage() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-80"
           style={{ 
-            backgroundImage: "url('/images/menopause-care.jpg')", 
+            backgroundImage: "url('/images/menopause-care.avif')", 
             backgroundColor: "#2B2320" 
           }}
           aria-label="A mature woman smiling outdoors"

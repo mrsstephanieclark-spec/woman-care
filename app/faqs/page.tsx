@@ -202,10 +202,10 @@ export default function FAQsPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-85"
           style={{ 
-            backgroundImage: "url('/images/faqs.jpg')", 
+            backgroundImage: "url('/images/faqs-hero.jpg')", 
             backgroundColor: "#2B2320" 
           }}
-          aria-label="Doctor answering patient questions with patient chart"
+          aria-label="Mother resting peacefully holding her sleeping newborn baby close"
         />
         <div className="plum-overlay-content relative z-20 text-center max-w-4xl mx-auto px-4">
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl text-white font-bold">

@@ -12,10 +12,10 @@ export default function PrenatalCareDeliveryPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-80"
           style={{ 
-            backgroundImage: "url('/images/prenatal-care-delivery.jpg')", 
+            backgroundImage: "url('/images/prenatal-hero.jpg')", 
             backgroundColor: "#2B2320" 
           }}
-          aria-label="Obstetrician showing an ultrasound scan in a warm consultation room"
+          aria-label="Expecting mother resting peacefully in a living room"
         />
         <div className="plum-overlay-content relative z-20 text-center max-w-4xl mx-auto px-4">
           <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl text-white font-bold mb-3">
@@ -137,8 +137,8 @@ export default function PrenatalCareDeliveryPage() {
               <div className="lg:col-span-5">
                 <div className="relative rounded-xl overflow-hidden aspect-square bg-cream">
                   <Image
-                    src="/images/ultrasound-details.jpg"
-                    alt="Baby ultrasound scan image on monitor"
+                    src="/images/prenatal-ultrasound.jpg"
+                    alt="Realistic pregnancy ultrasound scan image"
                     fill
                     className="object-cover"
                   />

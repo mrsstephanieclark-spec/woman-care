@@ -49,8 +49,8 @@ export default function FamilyPlanningPreconceptionPage() {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-md aspect-4/3 bg-white">
               <Image
-                src="/images/family-planning-details.jpg"
-                alt="Birth control consultation at WomanCare"
+                src="/images/family-planning.jpg"
+                alt="Realistic birth control consultation at WomanCare"
                 fill
                 className="object-cover"
               />
@@ -64,8 +64,8 @@ export default function FamilyPlanningPreconceptionPage() {
           <div className="lg:col-span-5 relative order-last lg:order-first">
             <div className="relative rounded-2xl overflow-hidden shadow-md aspect-4/3 bg-white">
               <Image
-                src="/images/infertility-details.jpg"
-                alt="Infertility diagnostic assessment discussion"
+                src="/images/infertility.jpg"
+                alt="Realistic supportive consultation moment between patient and provider"
                 fill
                 className="object-cover"
               />
@@ -110,8 +110,8 @@ export default function FamilyPlanningPreconceptionPage() {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-md aspect-4/3 bg-white">
               <Image
-                src="/images/preconception-details.jpg"
-                alt="Expectant mother consulting with nutritionist"
+                src="/images/preconception.jpg"
+                alt="Realistic active woman preparing a healthy meal with fresh vegetables in kitchen"
                 fill
                 className="object-cover"
               />
